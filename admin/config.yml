@@ -1,0 +1,57 @@
+
+
+backend:
+
+  name: git-gateway
+
+  branch: main
+
+media_folder: "photos"
+
+public_folder: "/photos"
+
+collections:
+
+  - name: "horses"
+
+    label: "Manage Horses"
+
+    label_singular: "Horse"
+
+    folder: "horses"
+
+    create: true
+
+    slug: "{{slug}}"
+
+    extension: "json"
+
+    format: "json"
+
+    fields:
+
+      - {label: "Horse Name", name: "name", widget: "string"}
+
+      - {label: "Price", name: "price", widget: "string"}
+
+      - {label: "Description", name: "details", widget: "text"}
+
+      - {label: "Main Photo", name: "image", widget: "image", required: false}
+
+      - {label: "YouTube Video", name: "video", widget: "string", required: false}
+
+      - label: "Listing Status"
+
+        name: "status"
+
+        widget: "select"
+
+        default: "available"
+
+        options:
+
+          - {label: "Available", value: "available"}
+
+          - {label: "SOLD - Show Sold Badge", value: "sold"}
+
+          - {label: "HIDE - Remove From Website", value: "hidden"}
