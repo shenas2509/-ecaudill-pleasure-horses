@@ -1,9 +1,20 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>E. Caudill Horse Admin</title></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>E. Caudill Horse Management</title>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
 <body>
-<h1>E. Caudill Horse Auctions</h1>
-<p>Horse Management</p>
-<p>Admin setup in progress. Editing and login are not yet enabled.</p>
+<h1>E. Caudill Horse Management</h1>
+<p>Manage your horses, photos, and sold listings.</p>
+<div data-netlify-identity-menu></div>
+<p id="status">Sign in to continue.</p>
+<script>
+netlifyIdentity.on("login",function(user){document.getElementById("status").textContent="Signed in as "+user.email;});
+netlifyIdentity.on("logout",function(){document.getElementById("status").textContent="Sign in to continue.";});
+netlifyIdentity.init();
+</script>
 </body>
 </html>
