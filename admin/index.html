@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>E. Caudill Horse Management</title>
+<title>E. Caudill Horse Editor</title>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<h1>E. Caudill Horse Management</h1>
-<p>Manage your horses, photos, and sold listings.</p>
-<div data-netlify-identity-menu></div>
-<p id="status">Sign in to continue.</p>
 <script>
-netlifyIdentity.on("login",function(user){document.getElementById("status").textContent="Signed in as "+user.email;});
-netlifyIdentity.on("logout",function(){document.getElementById("status").textContent="Sign in to continue.";});
-netlifyIdentity.init();
+if (window.netlifyIdentity) {
+  netlifyIdentity.on("init", user => {
+    if (!user) netlifyIdentity.on("login", () => {
+      document.location.href = "/admin/";
+    });
+  });
+  netlifyIdentity.init();
+}
 </script>
+<script src="https://unpkg.com/decap-cms@3.8.3/dist/decap-cms.js"></script>
 </body>
 </html>
